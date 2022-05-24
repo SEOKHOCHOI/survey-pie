@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import SelectInput from "../SelectInput";
 import TextAreaInput from "../TextAreaInput";
@@ -14,10 +15,15 @@ const Body = ({ type, answer, setAnswer, options }) => {
     InputComponent = TextAreaInput;
   }
   return (
-    <>
+    <BodyWrapper>
       <InputComponent answer={answer} setAnswer={setAnswer} options={options} />
-    </>
+    </BodyWrapper>
   );
 };
+
+const BodyWrapper = styled.div`
+  margin: 0 38px;
+  flex: 1;
+`;
 
 export default Body;

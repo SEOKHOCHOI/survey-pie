@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 import ActionButtons from "../ActionButtons";
 import Body from "../Body";
@@ -13,7 +14,7 @@ const QuestionBox = ({
   setAnswer,
 }) => {
   return (
-    <div>
+    <QuestionBoxWrapper>
       <Title>{question.title}</Title>
       <Desc>{question.desc}</Desc>
       <Body
@@ -23,8 +24,14 @@ const QuestionBox = ({
         options={question.options}
       />
       <ActionButtons questionsLength={questionsLength} step={step} />
-    </div>
+    </QuestionBoxWrapper>
   );
 };
+
+const QuestionBoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
 
 export default QuestionBox;

@@ -5,9 +5,6 @@ const CompletionPage = () => {
   return <CompletionPageWrapper>dd</CompletionPageWrapper>;
 };
 
-const CompletionPageWrapper = styled.div`
-  background: aqua;
-  padding: 4em;
-`;
+const CompletionPageWrapper = styled.div``;
 
 export default CompletionPage;
