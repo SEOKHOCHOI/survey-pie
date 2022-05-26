@@ -9,8 +9,9 @@ import Desc from "../Desc";
 import Title from "../Title";
 
 const QuestionBox = () => {
-  const question = useCurrentQuestion();
   const [answer, setAnswer] = useCurrentAnswer();
+  const question = useCurrentQuestion(); // undeifined
+
   return (
     <QuestionBoxWrapper>
       <Title>{question.title}</Title>
