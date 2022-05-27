@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 
-import { answersState } from "../stores/answers/atom";
+import answersState from "../stores/answers/atom";
 import { useStep } from "./useStep";
 
 export function useCurrentAnswer() {

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const TextAreaInput = ({ answer, setAnswer, options }) => {
+const TextAreaInput = ({ answer = "", setAnswer, options }) => {
   return (
     <TextArea
       type="text"
