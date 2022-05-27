@@ -10,6 +10,9 @@ const TextInput = ({ answer = "", setAnswer, options }) => {
         setAnswer(e.target.value);
       }}
       placeholder={options.placeholder}
+      // {...{ maxLength: options.max }} 밑과 완전히 동일한 코드
+      // maxLength={options?.max}
+      {...(options.max && { maxLength: options.max })}
     />
   );
 };

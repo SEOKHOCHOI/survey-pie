@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Item = ({ children, onChange }) => {
+const Item = ({ children, checked, onChange }) => {
   return (
     <ItemWrapper>
       <label>
-        <input type="checkbox" onChange={onChange} />
+        <input type="checkbox" checked={checked} onChange={onChange} />
         <span />
         <div>{children}</div>
       </label>
@@ -16,6 +16,12 @@ const Item = ({ children, onChange }) => {
 const SelectInput = ({ answer = [], setAnswer, options }) => {
   const handleChange = (isChecked, index) => {
     if (isChecked) {
+      const max = options?.max ?? 1;
+
+      if (answer.length >= max) {
+        return;
+      }
+
       setAnswer([...answer, index]);
     } else {
       setAnswer(answer.filter((item) => item !== index));
@@ -28,6 +34,7 @@ const SelectInput = ({ answer = [], setAnswer, options }) => {
         return (
           <Item
             key={index}
+            checked={answer.includes(index)}
             onChange={(e) => {
               handleChange(e.target.checked, index);
             }}
