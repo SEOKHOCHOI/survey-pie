@@ -14,7 +14,7 @@ import Button from "../Button";
 const ActionButtons = () => {
   const step = useStep();
   const surveyId = useSurveyId();
-  const answers = useAnswers();
+  const [answers, setAnswers] = useAnswers();
   const [isPosting, setIsPosting] = useState(false);
   const questionsLength = useRecoilValue(questionsLengthState);
   const isRequired = useRequiredOption();
@@ -42,7 +42,8 @@ const ActionButtons = () => {
             setIsPosting(true);
             postAnswers(surveyId, answers)
               .then(() => {
-                navigate(`/done`);
+                setAnswers([]);
+                navigate(`/done/${surveyId}`);
               })
               .catch((error) => {
                 alert("에러가 발생했습니다. 다시 시도해주세요.");
